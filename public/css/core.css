@@ -1,0 +1,48 @@
+.feature-block {
+  background: #EFEFEF;
+  border: 2px solid #f8f8f8;
+  min-height: 150px;
+}
+.movie-block {
+  padding: 20px 10px;
+  background: #efefef;
+}
+
+.more-results-block {
+  margin-top: 20px;
+  padding: 10px 10px;
+  background: #efefef;
+}
+
+.more-results-block a {
+  color: #9b479f;
+}
+
+.review-block {
+  padding: 20px 0px;
+}
+
+ul {
+  border: 0px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li.resultList {
+  padding: 8px;
+}
+
+li.resultList:nth-child(odd) {
+  background: #fefefe;
+}
+li.resultList:nth-child(even) {
+  background: #e0e0e0;
+}
+
+h4.resultList {
+
+padding: 8px;
+background: #FA8258;
+
+}

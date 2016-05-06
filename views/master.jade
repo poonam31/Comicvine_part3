@@ -1,0 +1,24 @@
+doctype html
+html(ng-app='app')
+head
+  base(href='/')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-resource.min.js')
+  script(src='/js/core.js')
+
+  link(rel='stylesheet', href='/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/css/core.css')
+
+  body
+    header(class="navbar navbar-inverse navbar-static-top")
+      div(class="container")
+        div(class="navbar-header")
+          a(class="navbar-brand", href="/") Comicvine Demo App
+        nav(class="collapse navbar-collapse bs-navbar-collapse", role="navigation")
+          ul(class="nav navbar-nav")
+            each name in ["Search"]
+              li
+                a(href= "/")= name
+
+        
+    block content

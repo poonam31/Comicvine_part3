@@ -1,0 +1,36 @@
+extends master
+
+block content
+  .container(ng-controller="comicDetailController")
+    h2.v-center {{comic.results.name}}
+    p.lead Origin: {{comic.results.origin.name}}
+    p.lead Publisher: {{comic.results.publisher.name}}
+    br
+    .row
+      .col-md-12
+        .col-md-5
+          p
+            image.img-circle(src='{{comic.results.image.medium_url}}', alt='image', height='440', width='400')
+        .col-md-6.movie-block
+          h4(style="margin-top: 3px !important")  {{comic.results.deck}}
+          p
+               
+            button.btn.btn-default(style="width: 100%",ng-click="togglePowers()") {{powersBtnText || '+ Powers'}} 
+            ul(ng-show="displayPowers")
+              li.resultList(ng-repeat="power in comic.results.powers")
+                span {{power.name}}
+          p
+            
+            button.btn.btn-warning(style="width: 100%", ng-click="toggleFriends()") {{friendsBtnText || '+ Friends'}} 
+            ul(ng-show="displayFriends")
+              li.resultList(ng-repeat="friend in comic.results.character_friends")
+                span
+                  a(href='/comics/{{friend.id}}') {{friend.name}}
+          p
+
+            button.btn.btn-default(style="width: 100%", ng-click="toggleEnemies()") {{enemiesBtnText || '+ Enemies'}} 
+            ul(ng-show="displayEnemies")
+              li.resultList(ng-repeat="enemie in comic.results.character_enemies")
+                a.btn.btn-xs.btn-primary(href="comics/{{comic.results.id}}/versus/{{enemie.id}}") Vs.
+                span 
+                  a(href='/comics/{{enemie.id}}') {{enemie.name}}

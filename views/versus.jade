@@ -1,0 +1,73 @@
+extends master
+
+block content
+	.container(ng-controller="comicVersusController")
+		.row
+			.col-md-3
+				h3 {{comic.mainDetail.results.name}}
+				h4 Origin // {{comic.mainDetail.results.origin.name}}
+				h4 publisher // {{comic.mainDetail.results.publisher.name}}
+				h5 {{comic.mainDetail.results.deck}}
+				p
+					a.btn.btn-sm.btn-warning(style="width: 30%; margin-top: 10px; margin-left: 180px", href="comics/{{comic.mainDetail.results.id}}") details 
+			.col-md-3
+				p
+					image.img-rounded(src='{{comic.mainDetail.results.image.medium_url}}', alt='image', height='340', width='250')
+			.col-md-3
+				p
+					image.img-rounded(src='{{comic.challengerDetail.results.image.medium_url}}', alt='image', height='340', width='250')
+			.col-md-3
+				h3 {{comic.challengerDetail.results.name}}
+				h4 Origin // {{comic.challengerDetail.results.origin.name}}
+				h4 publisher // {{comic.challengerDetail.results.publisher.name}}
+				h5 {{comic.challengerDetail.results.deck}}
+				p
+					a.btn.btn-sm.btn-warning(style="width: 30%; margin-top: 10px; margin-left: 180px", href="comics/{{comic.challengerDetail.results.id}}") details 
+
+		.row
+			.col-md-3
+				p
+					h4.resultList # of Powers {{comic.mainDetail.results.powers.length}}
+					ul(ng-show="comic.mainDetail.results.powers.length > 0")
+						li.resultList(ng-repeat="power in comic.mainDetail.results.powers | limitTo:5")
+							span {{power.name}}
+				p
+					h4.resultList # of Teams {{comic.mainDetail.results.teams.length}}
+					ul(ng-show="comic.mainDetail.results.teams.length > 0")
+						li.resultList(ng-repeat="team in comic.mainDetail.results.teams | limitTo:3")
+							span {{team.name}}
+				p
+					h4.resultList # of Friends {{comic.mainDetail.results.character_friends.length}}
+					ul(ng-show="comic.mainDetail.results.character_friends.length > 0")
+						li.resultList(ng-repeat="friend in comic.mainDetail.results.character_friends | limitTo:10")
+							span 
+								a(href='/comics/{{friend.id}}') {{friend.name}}
+				p
+					h4.resultList # of Enemies {{comic.mainDetail.results.character_enemies.length}}
+					ul(ng-show="comic.mainDetail.results.character_enemies.length > 0")
+						li.resultList(ng-repeat="enemie in comic.mainDetail.results.character_enemies | limitTo:10")
+							span 
+								a(href='/comics/{{enemie.id}}') {{enemie.name}}
+			.col-md-3
+			.col-md-3
+			.col-md-3
+				p
+					h4.resultList # of Powers {{comic.challengerDetail.results.powers.length}}
+					ul(ng-show="comic.challengerDetail.results.powers.length > 0")
+						li.resultList(ng-repeat="power in comic.challengerDetail.results.powers | limitTo:5")
+							span {{power.name}}
+				p
+					h4.resultList # of Teams {{comic.challengerDetail.results.teams.length}}
+					ul(ng-show="comic.challengerDetail.results.teams.length > 0")
+						li.resultList(ng-repeat="team in comic.challengerDetail.results.teams | limitTo:5")
+							span {{team.name}}
+				p
+					h4.resultList # of Friends {{comic.challengerDetail.results.character_friends.length}}
+					ul(ng-show="comic.challengerDetail.results.character_friends.length > 0")
+						li.resultList(ng-repeat="friend in comic.challengerDetail.results.character_friends | limitTo:5")
+							span {{friend.name}}
+				p
+					h4.resultList # of Enemies {{comic.challengerDetail.results.character_enemies.length}}
+					ul(ng-show="comic.challengerDetail.results.character_enemies.length > 0")
+						li.resultList(ng-repeat="enemie in comic.challengerDetail.results.character_enemies | limitTo:5")
+							span {{enemie.name}}

@@ -1,0 +1,40 @@
+extends master
+
+block content
+  .container
+    h2.v-center Search
+    p.lead 
+    h4 /// Find a superhero or villian by name
+
+    .row(ng-controller="comicController")
+      form.col-md-5
+        .input-group
+          input.form-control.input-md(type="text", ng-model="title")
+          span.input-group-btn
+            button.btn.btn-md.btn-warning.pull-right(type="submit", ng-click="searchComic()") search
+        p(ng-show="comics.length == 0")
+          i.yellow * no comics found
+
+        div.more-results-block(ng-show="comics.alternatives.length > 0")
+          p
+            i.span /// similar matches
+            hr
+          div(ng-repeat="alt in comics.alternatives")
+            p
+            ul
+              li
+                a( ng-click=" comics.main = alt ") {{alt.name}}
+      .col-md-1
+     
+      .col-md-6.movie-block(ng-show="comics.main", style="margin-top: 56px")
+        .col-md-6
+          p
+            image.img-circle(src='{{comics.main.image.small_url}}', alt='image', height='240', width='200')
+        .col-md-6
+          p
+            h3(style="margin-top: 3px !important") {{comics.main.name}}
+            p  {{comics.main.deck}}
+            p 
+              a.btn.btn-warning(style="width: 50%; margin-top: 10px", href="comics/{{comics.main.id}}") details 
+
+
