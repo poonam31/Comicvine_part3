@@ -1,3 +1,3 @@
-# Comicvine API
-CS454 - Comic Character Search - NodeJS
+# Comicvine Character Search
+
 
