@@ -2,7 +2,7 @@
 
 - A web application using Node.js and Angular.js that allows a user to search for a Comic Character by name using the Comicvine Developer's API 
 - A server is implemented with Node.js using the express framework 
-- Client side is implemented using Angular.js and Jade or EJS (no jQuery)
+- Client side is implemented using Angular.js and Jade.
 - IF the search is successful - user will see details (name and description) about the character searched
 - IF the search is NOT successful - user will see a message indicating no results found 
 - The response from the ComicVine API is an array of character objects. So the first object in the array is returned as the main character searched and other additional characters contain in the array are displayed as similar matches.
